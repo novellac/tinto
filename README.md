@@ -21,9 +21,7 @@ Reference the [Tina CMS Vue example](https://github.com/tinacms-examples/vue) co
 
 ## TODOs
 
-- Bug? There's an ` ERROR  [unhandledRejection] write EPIPE ` that keeps getting called, though not exactly sure under what circumstances.
-- Feature: Handle `strikethrough` processing from wysiwyg.
-- Feature: Handle code blocks processing from wysiwyg.
-- Bug, but out of scope: Block quotes in wysiwyg can't be terminated by clicking the button, you have to edit the markdown directly.
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Bug: There's an ` ERROR  [unhandledRejection] write EPIPE ` that keeps getting called, though not exactly sure under what circumstances.
+- Feature (nb, out of scope): Handle `strikethrough` processing from wysiwyg.
+- Feature (nb, out of scope): Handle code blocks processing from wysiwyg.
+- Bug (nb, out of scope): Block quotes in wysiwyg can't be terminated by clicking the button, you have to edit the markdown directly.
