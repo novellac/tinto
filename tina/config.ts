@@ -61,6 +61,12 @@ export default defineConfig({
             utc: true,
           },
           {
+            type: 'string',
+            name: 'snackList',
+            label: 'Snack list',
+            list: true,
+          },
+          {
             type: 'rich-text',
             name: 'body',
             label: 'Body',
@@ -95,6 +101,31 @@ export default defineConfig({
                     options: ['utc', 'iso', 'local'],
                   },
                 ],
+              },
+            ],
+          },
+          {
+            label: 'Related links',
+            description: 'WARNING! You are responsible for ensuring that all links are valid!',
+            name: 'linkItems',
+            type: 'object',
+            list: true,
+            ui: {
+              itemProps: (item: Record<string, string>) => {
+                // Field values are accessed by item?.<Field name>
+                return { label: item?.linkText }
+              },
+            },
+            fields: [
+              {
+                label: 'Link text',
+                name: 'linkText',
+                type: 'string',
+              },
+              {
+                label: 'Link destination',
+                name: 'href',
+                type: 'string',
               },
             ],
           },

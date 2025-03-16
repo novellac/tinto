@@ -1,3 +1,11 @@
+/**
+ *
+ * @param object - the object to query; usually page data
+ * @param property - the name of the Tina field
+ * @param index
+ * @returns string
+ */
+
 export function tinaField<T extends Record<string, any> | undefined | null>(object: T, property?: keyof Omit<NonNullable<T>, '__typename' | '_sys'>, index?: number): string {
   if (!object || !object._content_source)
     return ''

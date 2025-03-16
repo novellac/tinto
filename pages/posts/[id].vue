@@ -52,8 +52,35 @@ function formatDate(date: string | number | Date) {
       </div>
     </header>
 
-    <div class="prose lg:prose-xl" :data-tina-field="tinaField(data, 'body')">
+    <h2 class="text-3xl">
+      What I'm munching on today:
+    </h2>
+    <ul v-if="data.snackList" class="flex gap-4 flex-wrap mt-2">
+      <li v-for="(item, index) in data.snackList" :key="index" class="bg-pink-200 rounded-full px-2" :data-tina-field="tinaField(data, 'snackList', index)">
+        {{ item }}
+      </li>
+    </ul>
+
+    <h2 class="text-3xl mt-8">
+      What I'm thinking about today:
+    </h2>
+    <div class="prose lg:prose-xl mt-2" :data-tina-field="tinaField(data, 'body')">
       <TinaMarkdown :content="markdownContent" :components="customComponents" />
     </div>
+
+    <h2 class="text-3xl mt-8">
+      Where you can find these fantatic fruits:
+    </h2>
+    <ul v-if="data.linkItems" class="flex flex-col gap-2">
+      <li v-for="(linkItem, linkIndex) in data.linkItems" :key="linkIndex" class="border-green-700 rounded-full px-2">
+        <span class="mr-1">🔗</span>
+        <a v-if="linkItem?.href" :href="linkItem?.href" :data-tina-field="tinaField(linkItem, 'linkText')" class="underline">
+          {{ linkItem?.linkText }}
+        </a>
+        <p v-else>
+          {{ linkItem?.linkText }}
+        </p>
+      </li>
+    </ul>
   </article>
 </template>
