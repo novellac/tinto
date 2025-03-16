@@ -1,10 +1,14 @@
-# Tinto - a Nuxt/Tina example adapted from TinaCMS's Vue example
+# Tinto - a Nuxt/Tina starter
 
-This is a repro I made from the proof of concept linked in the [Nuxt with Contextual Editing issue](https://github.com/tinacms/tinacms/issues/4691) on Github. You're welcome to fork or use as a template.
+[![Hippocratic License HL3-FULL](https://img.shields.io/static/v1?label=Hippocratic%20License&message=HL3-FULL&labelColor=5e2751&color=bc8c3d)](https://firstdonoharm.dev/version/3/0/full.html)
+
+This is a repro I made from the proof of concept linked in the [Nuxt with Contextual Editing issue](https://github.com/tinacms/tinacms/issues/4691) on Github. You're welcome to fork or use as a template. Work not directly from the the original Vue example is covered under the [Hippocartic License HL3-FULL](https://firstdonoharm.dev/version/3/0/full.html).
 
 It contains some of my Vue/Nuxt opinions. It's under active development, so it will continue to increase in opinions.
 
 ## Setup from blank repo
+
+**Note: This repo has moved beyond the following instructions, but the following instructions should still get you started with a blank Nuxt repo and Tina's contextual editing feature.**
 
 Reference the [Tina CMS Vue example](https://github.com/tinacms-examples/vue) code while following these instructions.
 
