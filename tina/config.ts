@@ -1,11 +1,11 @@
-import { defineConfig } from "tinacms";
+import { defineConfig } from 'tinacms'
 
 // Your hosting provider likely exposes this as an environment variable
-const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  process.env.HEAD ||
-  "main";
+const branch
+  = process.env.GITHUB_BRANCH
+    || process.env.VERCEL_GIT_COMMIT_REF
+    || process.env.HEAD
+    || 'main'
 
 export default defineConfig({
   branch,
@@ -16,83 +16,83 @@ export default defineConfig({
   token: process.env.TINA_TOKEN,
 
   build: {
-    outputFolder: "admin",
-    publicFolder: "public",
+    outputFolder: 'admin',
+    publicFolder: 'public',
   },
   media: {
     tina: {
-      mediaRoot: "",
-      publicFolder: "public",
+      mediaRoot: '',
+      publicFolder: 'public',
     },
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
       {
-        name: "post",
-        label: "Posts",
-        path: "content/posts",
-        format: "mdx",
+        name: 'post',
+        label: 'Posts',
+        path: 'content/posts',
+        format: 'mdx',
         ui: {
           router(args) {
-            return `/posts/${args.document._sys.filename}`;
+            return `/posts/${args.document._sys.filename}`
           },
         },
         fields: [
           {
-            type: "string",
-            name: "title",
-            label: "Title",
+            type: 'string',
+            name: 'title',
+            label: 'Title',
             isTitle: true,
             required: true,
           },
           {
-            type: "string",
-            name: "description",
-            label: "Description",
+            type: 'string',
+            name: 'description',
+            label: 'Description',
             required: true,
           },
           {
-            type: "datetime",
-            name: "date",
-            label: "Date",
+            type: 'datetime',
+            name: 'date',
+            label: 'Date',
             required: true,
-            //@ts-ignore
+            // @ts-expect-error utc doesn't exist on the object but maybe should
             utc: true,
           },
           {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
+            type: 'rich-text',
+            name: 'body',
+            label: 'Body',
             isBody: true,
             templates: [
               {
-                name: "callout",
-                label: "Callout Box",
+                name: 'callout',
+                label: 'Callout Box',
                 fields: [
                   {
-                    name: "text",
-                    label: "Text",
-                    type: "string",
+                    name: 'text',
+                    label: 'Text',
+                    type: 'string',
                   },
                   {
-                    name: "type",
-                    label: "Type",
-                    type: "string",
-                    options: ["info", "warning", "success"],
+                    name: 'type',
+                    label: 'Type',
+                    type: 'string',
+                    options: ['info', 'warning', 'success'],
                   },
                 ],
               },
               {
-                name: "currentDateTime",
-                label: "Date & Time",
+                name: 'currentDateTime',
+                label: 'Date & Time',
                 inline: true,
                 fields: [
                   {
-                    name: "format",
-                    label: "Format",
-                    type: "string",
-                    options: ["utc", "iso", "local"],
+                    name: 'format',
+                    label: 'Format',
+                    type: 'string',
+                    options: ['utc', 'iso', 'local'],
                   },
                 ],
               },
@@ -102,4 +102,4 @@ export default defineConfig({
       },
     ],
   },
-});
+})

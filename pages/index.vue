@@ -1,7 +1,6 @@
 <template>
   <div class="max-w-5xl mx-auto px-6 py-20">
     <section class="text-center mb-20">
-
       <h1 class="text-5xl font-medium text-gray-900 mb-6">
         Create Your Blog with TinaCMS
       </h1>
@@ -28,19 +27,25 @@
 
     <section class="grid md:grid-cols-3 gap-12">
       <div class="text-center">
-        <h3 class="text-xl font-medium text-gray-900 mb-4">Visual Editing</h3>
+        <h3 class="text-xl font-medium text-gray-900 mb-4">
+          Visual Editing
+        </h3>
         <p class="text-gray-600">
           Edit your content visually with TinaCMS's intuitive interface. No coding required.
         </p>
       </div>
       <div class="text-center">
-        <h3 class="text-xl font-medium text-gray-900 mb-4">Markdown Support</h3>
+        <h3 class="text-xl font-medium text-gray-900 mb-4">
+          Markdown Support
+        </h3>
         <p class="text-gray-600">
           Write your content in Markdown with full support for rich text formatting.
         </p>
       </div>
       <div class="text-center">
-        <h3 class="text-xl font-medium text-gray-900 mb-4">Fast & Modern</h3>
+        <h3 class="text-xl font-medium text-gray-900 mb-4">
+          Fast & Modern
+        </h3>
         <p class="text-gray-600">
           Built with Nuxt 3 for optimal performance and developer experience.
         </p>

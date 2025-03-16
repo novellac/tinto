@@ -1,22 +1,30 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "tinto",
   "type": "module",
+  "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"nuxt dev\"",
     "build": "tinacms build && nuxt build",
     "generate": "tinacms build && nuxt generate",
     "preview": "tinacms build && nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
+    "@nuxt/eslint": "^1.2.0",
+    "@nuxt/image": "^1.9.0",
+    "@nuxt/test-utils": "^3.17.2",
+    "date-fns": "^4.1.0",
     "nuxt": "^3.15.4",
     "tinacms": "^2.7.2",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^4.10.1",
     "@tinacms/cli": "^1.9.2",
-    "@types/node": "^22.13.8"
+    "@types/node": "^22.13.8",
+    "eslint": "^9.22.0"
   }
 }
