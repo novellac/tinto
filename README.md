@@ -1,6 +1,8 @@
 # Tinto - a Nuxt/Tina example adapted from TinaCMS's Vue example
 
-This is a repro I made from the proof of concept linked in the [Nuxt with Contextual Editing issue](https://github.com/tinacms/tinacms/issues/4691) on Github.
+This is a repro I made from the proof of concept linked in the [Nuxt with Contextual Editing issue](https://github.com/tinacms/tinacms/issues/4691) on Github. You're welcome to fork or use as a template.
+
+It contains some of my Vue/Nuxt opinions. It's under active development, so it will continue to increase in opinions.
 
 ## Setup from blank repo
 
@@ -10,7 +12,7 @@ Reference the [Tina CMS Vue example](https://github.com/tinacms-examples/vue) co
 2. Install Tina following Tina CMS's [framework-agnostic getting started guide](https://tina.io/docs/frameworks/other) (you can use 'public' for the folder question).
 3. Update `nuxt.config.ts` with runtimeConfig API keys so Nuxt can access Tina while running, some route rules for easy navigating to the CMS, and hooks for processing data while using Tina (note you may have to do this for each content type).
 4. Copy over the composables folder - `tinaField` and `useTina` for processing Tina fields and handling some contextual editing features.
-5. Copy over the current components. You may want to nest these inside a `Base` or `Tina` folder so you can more clearly separate your components from these.
+5. Copy over the current components.
 6. In `tina/config.ts` you'll find the following differences:
 
 - `format: "mdx"` is added for easier processing of js in markdown. (note you won't need to use Nuxt to process the MDX, as you'll be using some functions from Tina to do so instead)
