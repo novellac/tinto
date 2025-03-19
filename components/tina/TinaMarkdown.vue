@@ -1,6 +1,16 @@
 <script setup lang="ts">
+import type { MarkdownElement } from '~/components/tina/TinaNode.vue'
+import { TinaBlockQuote, TinaCallout, TinaCurrentDate } from '#components'
 import { computed, unref } from 'vue'
 import TinaNode from './TinaNode.vue'
+
+defineOptions({
+  inheritAttrs: false,
+})
+
+const props = defineProps<{
+  content: TinaMarkdownContent | TinaMarkdownContent[]
+}>()
 
 export interface TinaMarkdownContent {
   type: string
@@ -8,10 +18,12 @@ export interface TinaMarkdownContent {
   text?: string
 }
 
-const props = defineProps<{
-  content: TinaMarkdownContent | TinaMarkdownContent[]
-  components?: Record<string, any>
-}>()
+// ? Custom Components that are passed to TinaMarkdown
+const customComponents: Partial<Record<MarkdownElement, unknown>> = {
+  callout: TinaCallout,
+  currentDateTime: TinaCurrentDate,
+  blockquote: TinaBlockQuote,
+}
 
 const nodes = computed(() => {
   const rawContent = unref(props.content)
@@ -21,6 +33,6 @@ const nodes = computed(() => {
 
 <template>
   <template v-for="(child, index) in nodes" :key="index">
-    <TinaNode :child="child" :components="components" />
+    <TinaNode :child="child" :components="customComponents" v-bind="$attrs" />
   </template>
 </template>

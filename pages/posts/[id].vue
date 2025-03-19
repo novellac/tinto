@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { MarkdownElement } from '~/components/tina/TinaNode.vue'
-import { TinaBlockQuote, TinaCallout, TinaCurrentDate, TinaMarkdown } from '#components'
+import { TinaMarkdown } from '#components'
 import { tinaField } from '@/composables/tinaField'
 import { useTina } from '@/composables/useTina'
 import { client } from '@/tina/__generated__/client'
@@ -23,13 +22,6 @@ const { data } = useTina({
 })
 
 const markdownContent = computed(() => data.value?.body || [])
-
-// ? Custom Components that are passed to TinaMarkdown
-const customComponents: Partial<Record<MarkdownElement, unknown>> = {
-  callout: TinaCallout,
-  currentDateTime: TinaCurrentDate,
-  blockquote: TinaBlockQuote,
-}
 
 function formatDate(date: string | number | Date) {
   return new Date(date).toLocaleDateString('en-US', {
@@ -65,7 +57,7 @@ function formatDate(date: string | number | Date) {
       What I'm thinking about today:
     </h2>
     <div class="prose lg:prose-xl mt-2" :data-tina-field="tinaField(data, 'body')">
-      <TinaMarkdown :content="markdownContent" :components="customComponents" />
+      <TinaMarkdown :content="markdownContent" />
     </div>
 
     <h2 class="text-3xl mt-8">
