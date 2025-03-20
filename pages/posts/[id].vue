@@ -3,7 +3,6 @@ import { TinaMarkdown } from '#components'
 import { tinaField } from '@/composables/tinaField'
 import { useTina } from '@/composables/useTina'
 import { client } from '@/tina/__generated__/client'
-import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
@@ -20,8 +19,6 @@ const { data } = useTina({
   variables: postResponse.variables,
   data: postResponse.data.post,
 })
-
-const markdownContent = computed(() => data.value?.body || [])
 
 function formatDate(date: string | number | Date) {
   return new Date(date).toLocaleDateString('en-US', {
@@ -57,7 +54,7 @@ function formatDate(date: string | number | Date) {
       What I'm thinking about today:
     </h2>
     <div class="prose lg:prose-xl mt-2" :data-tina-field="tinaField(data, 'body')">
-      <TinaMarkdown :content="markdownContent" />
+      <TinaMarkdown :content="data?.body || []" />
     </div>
 
     <h2 class="text-3xl mt-8">
@@ -74,5 +71,12 @@ function formatDate(date: string | number | Date) {
         </p>
       </li>
     </ul>
+
+    <h2 class="text-3xl">
+      One last thought:
+    </h2>
+    <div class="prose lg:prose-xl mt-2" :data-tina-field="tinaField(data, 'richText')">
+      <TinaMarkdown :content="data?.richText || []" />
+    </div>
   </article>
 </template>

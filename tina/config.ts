@@ -67,6 +67,43 @@ export default defineConfig({
             list: true,
           },
           {
+            label: 'Rich text description',
+            name: 'richText',
+            type: 'rich-text',
+            templates: [
+              {
+                name: 'callout',
+                label: 'Callout Box',
+                fields: [
+                  {
+                    name: 'text',
+                    label: 'Text',
+                    type: 'string',
+                  },
+                  {
+                    name: 'type',
+                    label: 'Type',
+                    type: 'string',
+                    options: ['info', 'warning', 'success'],
+                  },
+                ],
+              },
+              {
+                name: 'currentDateTime',
+                label: 'Date & Time',
+                inline: true,
+                fields: [
+                  {
+                    name: 'format',
+                    label: 'Format',
+                    type: 'string',
+                    options: ['utc', 'iso', 'local'],
+                  },
+                ],
+              },
+            ],
+          },
+          {
             type: 'rich-text',
             name: 'body',
             label: 'Body',
