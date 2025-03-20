@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+h1 {
+  @apply mb-6 text-fuchsia-900 text-2xl;
+}
+
+h2 {
+  @apply mb-4 text-fuchsia-900 text-xl;
+}

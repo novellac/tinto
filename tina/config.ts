@@ -61,6 +61,32 @@ export default defineConfig({
             utc: true,
           },
           {
+            type: 'object',
+            list: true,
+            name: 'blocks',
+            label: 'Page blocks',
+            templates: [
+              {
+                name: 'centeredProseBlock',
+                label: 'Centered text section',
+                fields: [
+                  {
+                    label: 'Heading',
+                    name: 'heading',
+                    type: 'string',
+                    description: 'Make sure all the headings on the page are unique, since they are used for anchor links.',
+                  },
+                  {
+                    label: 'WYSIWYG text',
+                    name: 'richText',
+                    type: 'rich-text',
+                  },
+                ],
+
+              },
+            ],
+          },
+          {
             type: 'string',
             name: 'snackList',
             label: 'Snack list',

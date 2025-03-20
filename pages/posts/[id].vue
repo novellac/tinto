@@ -4,6 +4,7 @@ import { tinaField } from '@/composables/tinaField'
 import { useTina } from '@/composables/useTina'
 import { client } from '@/tina/__generated__/client'
 import { useRoute } from 'vue-router'
+import CenteredProseBlock from '~/components/CenteredProseBlock.vue'
 
 const route = useRoute()
 const postSlug = route.params.id
@@ -78,5 +79,14 @@ function formatDate(date: string | number | Date) {
     <div class="prose lg:prose-xl mt-2" :data-tina-field="tinaField(data, 'richText')">
       <TinaMarkdown :content="data?.richText || []" />
     </div>
+
+    <h2 class="text-3xl">
+      No I was wrong there are even more random thoughts:
+    </h2>
+    <aside v-if="data.blocks?.length" class="flex flex-col gap-8 mt-8">
+      <section v-for="(block, index) in data.blocks" :key="index">
+        <CenteredProseBlock :block="block" />
+      </section>
+    </aside>
   </article>
 </template>
