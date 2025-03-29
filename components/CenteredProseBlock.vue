@@ -1,14 +1,7 @@
 <script setup lang="ts">
-import type { TinaMarkdownContent } from '~/components/tina/TinaMarkdown.vue'
-
-interface CenteredProseBlockBlock {
-  heading?: string
-  richText?: TinaMarkdownContent | TinaMarkdownContent[]
-}
-
 defineProps({
   block: {
-    type: Object as PropType<CenteredProseBlockBlock>,
+    type: Object,
     required: true,
   },
 })

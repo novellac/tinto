@@ -85,7 +85,7 @@ function formatDate(date: string | number | Date) {
     </h2>
     <aside v-if="data.blocks?.length" class="flex flex-col gap-8 mt-8">
       <section v-for="(block, index) in data.blocks" :key="index">
-        <CenteredProseBlock :block="block" />
+        <CenteredProseBlock v-if="block" :block="block" />
       </section>
     </aside>
   </article>
