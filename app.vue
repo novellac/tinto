@@ -14,17 +14,24 @@ const { data } = useTina({
 
 <template>
   <div>
+    <a href="#content" class="skip-link">Skip to Main</a>
+
     <NuxtRouteAnnouncer />
 
-    <main>
+    <main id="content">
       <NuxtPage />
     </main>
+
     <footer class="bg-purple-100 p-4">
-      {{ data.siteName }}<br>
+      <h2 class="text-4xl" :data-tina-field="tinaField(data, 'siteName')">
+        {{ data.siteName }}
+      </h2>
       <div class="prose lg:prose-xl mt-2" :data-tina-field="tinaField(data, 'footerText')">
         <TinaMarkdown :content="data?.footerText || []" />
       </div>
-      <p>© {{ new Date().getFullYear() }} {{ data.siteCopyright }}</p>
+      <p :data-tina-field="tinaField(data, 'siteCopyright')">
+        © {{ new Date().getFullYear() }} {{ data.siteCopyright }}
+      </p>
     </footer>
   </div>
 </template>

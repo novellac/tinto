@@ -7,3 +7,28 @@ h1 {
 h2 {
   @apply mb-4 text-fuchsia-900 text-xl;
 }
+
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link:focus {
+  position: static;
+  display: block;
+  width: fit-content;
+  height: auto;
+  padding: 10px;
+  margin: 1rem auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  transition: margin-top .25s;
+}
