@@ -1,11 +1,138 @@
+/* Imports TW for convenience, but largely uses our own CSS.
+ * Since we are now on TW v4, we should marry these styles at some point.
+ */
 @import "tailwindcss";
 
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('../fonts/avenirNext.ttc') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSansRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Custom palette */
+  /* Pink */
+  --color-primary: #721378;
+  /* White */
+  --color-secondary: #ffffff;
+  /* Blue */
+  --color-tertiary: #395182;
+  /* Deep pink */
+  --color-accent: #d94f70;
+  /* Dark blue */
+  --color-accent-dark: #2d4066;
+
+  /* Custom fonts */
+  --fontface-emphasized: 'AvenirNext';
+  --fontface-default: 'OpenSans';
+
+  /* Gap size rhythms */
+  --gap-sm: 1.5rem;
+  --gap-base: 2.5rem;
+  --gap-lg: 4rem;
+  --gap-xl: 6.25rem;
+
+  /* Button minimum sizing */
+  --button-height-base: 44px;
+  --button-width-base: 44px;
+
+  /* Font size rhythms
+   * Corresponds to 18, 20, 30, 36, 40 px based on 16px browser setting
+  */
+  --text-base: 1.125rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.875rem;
+  --text-xl: 2.25rem;
+  --text-2xl: 2.5rem;
+
+  /* Borders */
+  --border-size-base: 3px;
+
+  /* Custom breakpoints */
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop-sm: 1020px;
+  --breakpoint-desktop: 1200px;
+}
+
+/* Dev Utils */
+.devBorder {
+  border: 2px solid magenta;
+}
+
+/* Utilities */
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Typography */
+body {
+  color: var(--color-secondary);
+  font-family: var(--fontface-default);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-primary);
+  font-family: var(--fontface-emphasized);
+}
+
 h1 {
-  @apply mb-6 text-fuchsia-900 text-2xl;
+  font-size: var(--text-2xl);
+  margin-bottom: 1.5rem;
 }
 
 h2 {
-  @apply mb-4 text-fuchsia-900 text-xl;
+  font-size: var(--text-lg);
+  margin-bottom: 1rem;
+}
+
+p:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+
+a {
+  font-family: var(--fontface-emphasized);
+  color: var(--color-secondary);
+  text-decoration: none;
+  border-bottom: var(--border-size-base) solid var(--color-primary);
+}
+
+a:hover {
+  border-bottom: unset;
+}
+
+a:visited {
+  color: var(--color-primary);
+}
+
+strong {
+  font-family: var(--fontface-emphasized);
+}
+
+button {
+  background-color: unset;
+  border: none;
 }
 
 .skip-link {
@@ -31,4 +158,41 @@ h2 {
   clip: auto;
   white-space: normal;
   transition: margin-top .25s;
+}
+
+/* Layout */
+
+.body-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100vh;
+  padding: var(--gap-sm);
+  max-width: var(--breakpoint-desktop);
+  margin: auto;
+}
+
+/* Prevent  scrolling when dialog is open */
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+main {
+  flex-grow: 1;
+}
+
+header {
+  margin-bottom: var(--gap-base);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 12rem;
+  padding-bottom: var(--gap-sm);
+}
+
+.footer-icon {
+  color: var(--color-primary);
 }
