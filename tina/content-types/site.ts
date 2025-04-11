@@ -16,7 +16,8 @@ export const site: Collection = {
     {
       label: 'Site name',
       name: 'siteName',
-      type: 'string'
+      type: 'string',
+      required: true,
     },
     {
       label: 'Footer WYSIWYG text',
@@ -27,7 +28,7 @@ export const site: Collection = {
       label: 'Copyright',
       description: 'Add the copyright text without the year, which will be generated automatically.',
       name: 'siteCopyright',
-      type: 'string'
+      type: 'string',
     },
     {
       label: 'Nav links',
@@ -38,21 +39,23 @@ export const site: Collection = {
       ui: {
         itemProps: (item: Record<string, string>) => {
           // Field values are accessed by item?.<Field name>
-          return { label: item?.linkText };
+          return { label: item?.linkText }
         },
       },
       fields: [
         {
           label: 'Link text',
           name: 'linkText',
-          type: 'string'
+          type: 'string',
+          required: true,
         },
         {
           label: 'Link destination',
           name: 'href',
-          type: 'string'
-        }
-      ]
-    }
-  ]
+          type: 'string',
+          required: true,
+        },
+      ],
+    },
+  ],
 }
