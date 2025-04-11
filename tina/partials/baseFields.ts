@@ -1,18 +1,18 @@
-import type { TinaField } from 'tinacms';
+import type { TinaField } from 'tinacms'
 
-export const formatFileName = (rawTitle: string, defaultSlug: string) => {
+export function formatFileName(rawTitle: string, defaultSlug: string) {
   return (
     rawTitle
       ?.toLowerCase()
       .trim()
-      .replace(/[^a-zA-Z0-9]/g, '-') ||
-    defaultSlug.toLowerCase().replace(/[^a-zA-Z0-9]/g, '-')
-  );
-};
+      .replace(/[^a-z0-9]/gi, '-')
+      || defaultSlug.toLowerCase().replace(/[^a-z0-9]/gi, '-')
+  )
+}
 
 // Metadata
 
-export const pageTitle: TinaField =  {
+export const pageTitle: TinaField = {
   label: 'Page title',
   name: 'title',
   type: 'string',
@@ -36,14 +36,13 @@ export const pageDateIsRequired: TinaField = {
 export const metadata: TinaField[] = [
   pageTitle,
   pageDraftStatus,
-  pageDateIsRequired
+  pageDateIsRequired,
 ]
 
 export const metadataNoDate: TinaField[] = [
   pageTitle,
-  pageDraftStatus
+  pageDraftStatus,
 ]
-
 
 // Prose
 
@@ -51,33 +50,33 @@ export const baseHeading: TinaField = {
   label: 'Heading',
   name: 'heading',
   type: 'string',
-};
+}
 
 export const baseHeadingWithIDWarning: TinaField = {
   name: baseHeading.name,
   label: baseHeading.label,
   type: baseHeading.type,
-  description: 'Make sure all the headings on the page are unique, since they are used for anchor links.'
-};
+  description: 'Make sure all the headings on the page are unique, since they are used for anchor links.',
+}
 
 export const visuallyHideHeading: TinaField = {
   label: 'Visually hide heading',
   name: 'hideHeading',
   type: 'boolean',
-};
+}
 
 export const wysiwyg: TinaField = {
   label: 'WYSIWYG text',
   name: 'richText',
   type: 'rich-text',
-};
+}
 
 export const iconCardText: TinaField = {
   label: 'Icon card text',
   name: 'text',
   type: 'string',
   list: true,
-};
+}
 
 export const caption: TinaField = {
   label: 'Caption',
@@ -86,7 +85,7 @@ export const caption: TinaField = {
   ui: {
     component: 'textarea',
   },
-};
+}
 
 // Graphics
 
@@ -96,19 +95,19 @@ export const altText: TinaField = {
   type: 'string',
   description:
     'Provide clear, concise alt text to let screen readers and users with broken images know what is going on in the image.',
-};
+}
 
 export const baseImage: TinaField = {
   label: 'Image',
   name: 'image',
   type: 'image',
-};
+}
 
 export const imageRight: TinaField = {
   label: 'Image right?',
   name: 'imageRight',
   type: 'boolean',
-};
+}
 
 export const pageDivider: TinaField = {
   label: 'Divider style',
@@ -124,10 +123,10 @@ export const pageDivider: TinaField = {
       value: 'horizontalLine',
     },
   ],
-};
+}
 
 // Collections of fields, reusable in blocks and collections (content types)
-export const imageFields = [altText, baseImage];
+export const imageFields = [altText, baseImage]
 
 export const multipleImages: TinaField = {
   label: 'Images',
@@ -135,17 +134,17 @@ export const multipleImages: TinaField = {
   type: 'object',
   list: true,
   fields: imageFields,
-};
+}
 
 export const horizontalCardFields = [
   baseHeadingWithIDWarning,
   wysiwyg,
   {
     ...pageDivider,
-    description: '(optional) Show a divider below the WYSIWYG content.'
+    description: '(optional) Show a divider below the WYSIWYG content.',
   },
   ...imageFields,
-  imageRight
-];
+  imageRight,
+]
 
-export const verticalCardFields = [baseHeadingWithIDWarning, wysiwyg, ...imageFields];
+export const verticalCardFields = [baseHeadingWithIDWarning, wysiwyg, ...imageFields]
