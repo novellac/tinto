@@ -3,6 +3,8 @@ import { tinaField } from '@/composables/tinaField'
 import { useTina } from '@/composables/useTina'
 import { client } from '@/tina/__generated__/client'
 
+import BaseNavMenu from './components/BaseNavMenu.vue'
+
 const siteResponse = await client.queries.site({ relativePath: `global.json` })
 
 const { data } = useTina({
@@ -13,16 +15,18 @@ const { data } = useTina({
 </script>
 
 <template>
-  <div>
+  <div class="body-wrapper">
     <a href="#content" class="skip-link">Skip to Main</a>
-
+    <header>
+      <BaseNavMenu :nav-items="data?.navItems ? data?.navItems : []" :site-name="data.siteName" />
+    </header>
     <NuxtRouteAnnouncer />
 
     <main id="content">
       <NuxtPage />
     </main>
 
-    <footer class="bg-purple-100 p-4">
+    <footer>
       <h2 class="text-4xl" :data-tina-field="tinaField(data, 'siteName')">
         {{ data.siteName }}
       </h2>
