@@ -1,15 +1,19 @@
 {
   "siteName": "Tinto",
-  "footerText": "This site is based on Tinto, A Nuxt-Tina Starter repository. Join in! You can use Tinto too, according to the terms specified in the [Hippocratic License HL3-FULL](https://firstdonoharm.dev/version/3/0/full.html).\n\n![](/assets/images/asterIcon.png)You can also have a nice flower in the footer wysiwyg text.\n",
+  "footerText": "This site is based on Tinto, A Nuxt-Tina Starter repository. Join in! You can use Tinto too, according to the terms specified in the [Hippocratic License HL3-FULL](https://firstdonoharm.dev/version/3/0/full.html).\n\nYou can also have a nice flower in the footer wysiwyg text.\n",
   "siteCopyright": "Tinto and Alto",
   "navItems": [
     {
-      "linkText": "Nuxt",
-      "href": "https://nuxt.com/"
+      "linkText": "Blog posts",
+      "href": "/posts"
     },
     {
-      "linkText": "About (wip)",
-      "href": "https://example.com/about"
+      "linkText": "Authors",
+      "href": "/authors"
+    },
+    {
+      "linkText": "Nuxt",
+      "href": "https://nuxt.com/"
     },
     {
       "linkText": "Github",
