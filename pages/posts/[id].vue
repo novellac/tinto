@@ -38,6 +38,13 @@ function formatDate(date: string | number | Date) {
       <h1 :data-tina-field="tinaField(data, 'title')" class="text-4xl font-medium text-gray-900 mb-4">
         {{ data.title }}
       </h1>
+
+      <HeroCardBlock
+        v-if="data.heroField"
+        class="basicpage-hero"
+        :block="data.heroField"
+      />
+
       <div class="text-pink-600" :data-tina-field="tinaField(data, 'date')">
         <time>{{ formatDate(data.date) }}</time>
       </div>
