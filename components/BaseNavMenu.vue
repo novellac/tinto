@@ -35,7 +35,7 @@ function closeAndGo(dest: string) {
     </NuxtLink>
 
     <ul class="desktop-nav">
-      <li v-for="(link, index) in navItems" :key="index">
+      <li v-for="(link, index) in navItems" :key="index" :data-tina-field="tinaField(link, 'linkText')">
         <NuxtLink v-if="link" class="nav-links--link" :to="link.href">
           {{ link.linkText }}
         </NuxtLink>
@@ -65,6 +65,7 @@ function closeAndGo(dest: string) {
                 v-if="link"
                 class="nav-links--link"
                 :to="link.href"
+                :data-tina-field="tinaField(link, 'linkText')"
                 @click="closeAndGo(link.href)"
               >
                 {{ link.linkText }}
