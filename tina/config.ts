@@ -1,6 +1,8 @@
 import { defineConfig } from 'tinacms'
 
+import { author } from './content-types/author'
 import { site } from './content-types/site'
+import { heroField } from './partials/hero'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch
@@ -30,6 +32,7 @@ export default defineConfig({
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
+      author,
       site,
       {
         name: 'post',
@@ -42,6 +45,7 @@ export default defineConfig({
           },
         },
         fields: [
+          heroField,
           {
             type: 'string',
             name: 'title',

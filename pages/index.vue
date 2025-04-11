@@ -11,6 +11,12 @@
       >
         View Blog Posts
       </NuxtLink>
+      <NuxtLink
+        to="/authors"
+        class="inline-block bg-gray-900 !text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition"
+      >
+        View Blog Authors
+      </NuxtLink>
     </section>
   </div>
 </template>
