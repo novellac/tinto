@@ -19,6 +19,7 @@ const { data } = useTina({
   query: postResponse.query,
   variables: postResponse.variables,
   data: postResponse.data.post,
+  contentType: 'post',
 })
 
 function formatDate(date: string | number | Date) {

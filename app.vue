@@ -11,6 +11,7 @@ const { data } = useTina({
   query: siteResponse.query,
   variables: siteResponse.variables,
   data: siteResponse.data.site,
+  contentType: 'site',
 })
 </script>
 

@@ -9,6 +9,7 @@ export function useTina<T extends Record<string, any>>(props: {
   query: string
   variables: object
   data: T | null
+  contentType: 'post' | 'author' | 'site'
 }): { data: Ref<T>, isClient: Ref<boolean> } {
   const id = computed(() => hashFromQuery(JSON.stringify({ query: props.query, variables: props.variables })))
 
@@ -22,7 +23,7 @@ export function useTina<T extends Record<string, any>>(props: {
       if (!event.data.data) {
         return
       }
-      dataRef.value = fastClone(event.data.data.post)
+      dataRef.value = fastClone(event.data.data[props.contentType])
       triggerRef(dataRef)
     }
 
