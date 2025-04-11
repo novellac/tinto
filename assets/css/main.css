@@ -83,7 +83,7 @@
 
 /* Typography */
 body {
-  color: var(--color-secondary);
+  color: var(--color-primary);
   font-family: var(--fontface-default);
 }
 
@@ -113,17 +113,13 @@ p:not(:last-of-type) {
 
 a {
   font-family: var(--fontface-emphasized);
-  color: var(--color-secondary);
+  color: var(--color-accent);
   text-decoration: none;
   border-bottom: var(--border-size-base) solid var(--color-primary);
 }
 
 a:hover {
   border-bottom: unset;
-}
-
-a:visited {
-  color: var(--color-primary);
 }
 
 strong {
