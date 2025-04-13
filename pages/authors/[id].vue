@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { tinaField } from '@/composables/tinaField'
+import { useBlockTemplate } from '@/composables/useBlockTemplate'
 import { useTina } from '@/composables/useTina'
 import { client } from '@/tina/__generated__/client'
 import { useRoute } from 'vue-router'
 import CenteredProseBlock from '~/components/CenteredProseBlock.vue'
+import { ContentType } from '~/types'
 
 const route = useRoute()
 const authorSlug = route.params.id
@@ -18,7 +20,7 @@ const { data } = useTina({
   query: authorResponse.query,
   variables: authorResponse.variables,
   data: authorResponse.data.author,
-  contentType: 'author',
+  contentType: ContentType.AUTHOR,
 })
 </script>
 
@@ -44,7 +46,7 @@ const { data } = useTina({
 
     <aside v-if="data.blocks?.length" class="flex flex-col gap-8 mt-8">
       <section v-for="(block, index) in data.blocks" :key="index">
-        <CenteredProseBlock v-if="block" :block="block" />
+        <component :is="useBlockTemplate({ rawTemplateName: block.__typename, contentType: ContentType.AUTHOR })" v-if="block" :block="block" />
       </section>
     </aside>
   </article>

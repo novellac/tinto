@@ -1,4 +1,5 @@
 import type { Ref } from 'vue'
+import type { ContentType } from '~/types'
 import { computed, onBeforeUnmount, onMounted, ref, triggerRef, watchEffect } from 'vue'
 
 export function fastClone<T>(obj: T): T | undefined {
@@ -9,7 +10,7 @@ export function useTina<T extends Record<string, any>>(props: {
   query: string
   variables: object
   data: T | null
-  contentType: 'post' | 'author' | 'site'
+  contentType: ContentType
 }): { data: Ref<T>, isClient: Ref<boolean> } {
   const id = computed(() => hashFromQuery(JSON.stringify({ query: props.query, variables: props.variables })))
 
