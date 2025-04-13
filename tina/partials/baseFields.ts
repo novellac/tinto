@@ -71,8 +71,8 @@ export const wysiwyg: TinaField = {
   type: 'rich-text',
 }
 
-export const iconCardText: TinaField = {
-  label: 'Icon card text',
+export const plainText: TinaField = {
+  label: 'Text (plain)',
   name: 'text',
   type: 'string',
   list: true,

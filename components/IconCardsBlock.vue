@@ -13,7 +13,7 @@ defineProps({
 
     <ul v-if="block.text" class="cards-list">
       <li v-for="(item, index) in block.text" :key="index" :data-tina-field="tinaField(block, 'text')">
-        <img class="card-image" src="/assets/images/asterIcon.png" alt="">
+        <img v-if="block.iconCardsIcon.image" class="card-image" :src="block.iconCardsIcon.image" :alt="block.iconCardsIcon.alt">
 
         {{ item }}
       </li>

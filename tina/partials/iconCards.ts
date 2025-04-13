@@ -1,22 +1,30 @@
-import type { TinaField, Template } from 'tinacms'
+import type { Template, TinaField } from 'tinacms'
 
-import { baseHeadingWithIDWarning, iconCardText } from './baseFields'
+import { baseHeadingWithIDWarning, imageFields, plainText } from './baseFields'
+
+const iconCardsImage: TinaField = {
+  label: 'Cards icon (same for all cards)',
+  name: 'iconCardsIcon',
+  type: 'object',
+  fields: [...imageFields],
+}
 
 const iconCardsBase = {
   label: 'Icon Cards',
   fields: [
+    iconCardsImage,
     baseHeadingWithIDWarning,
-    iconCardText
+    plainText,
   ],
 }
 
 export const iconCardsBlock: Template = {
   name: 'iconCardsBlock',
-  ...iconCardsBase
+  ...iconCardsBase,
 }
 
 export const iconCardsField: TinaField = {
   name: 'iconCardsField',
   type: 'object',
-  ...iconCardsBase
+  ...iconCardsBase,
 }
