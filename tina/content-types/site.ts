@@ -1,8 +1,9 @@
 import type { Collection } from 'tinacms'
+import { ContentType } from '~/types'
 
 export const site: Collection = {
   label: 'Site information',
-  name: 'site',
+  name: ContentType.SITE,
   path: 'content/site',
   format: 'json',
   ui: {

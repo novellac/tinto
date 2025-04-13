@@ -1,5 +1,6 @@
 import { defineConfig } from 'tinacms'
 
+import { ContentType } from '~/types'
 import { author } from './content-types/author'
 import { site } from './content-types/site'
 import { heroField } from './partials/hero'
@@ -35,7 +36,7 @@ export default defineConfig({
       author,
       site,
       {
-        name: 'post',
+        name: ContentType.POST,
         label: 'Posts',
         path: 'content/posts',
         format: 'mdx',

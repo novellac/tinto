@@ -4,6 +4,7 @@ import { useTina } from '@/composables/useTina'
 import { client } from '@/tina/__generated__/client'
 
 import BaseNavMenu from './components/BaseNavMenu.vue'
+import { ContentType } from './types'
 
 const siteResponse = await client.queries.site({ relativePath: `global.json` })
 
@@ -11,7 +12,7 @@ const { data } = useTina({
   query: siteResponse.query,
   variables: siteResponse.variables,
   data: siteResponse.data.site,
-  contentType: 'site',
+  contentType: ContentType.SITE,
 })
 </script>
 

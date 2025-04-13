@@ -5,6 +5,7 @@ import { useTina } from '@/composables/useTina'
 import { client } from '@/tina/__generated__/client'
 import { useRoute } from 'vue-router'
 import CenteredProseBlock from '~/components/CenteredProseBlock.vue'
+import { ContentType } from '~/types'
 
 const route = useRoute()
 const postSlug = route.params.id
@@ -19,7 +20,7 @@ const { data } = useTina({
   query: postResponse.query,
   variables: postResponse.variables,
   data: postResponse.data.post,
-  contentType: 'post',
+  contentType: ContentType.POST,
 })
 
 function formatDate(date: string | number | Date) {
