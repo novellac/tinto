@@ -46,12 +46,23 @@ function formatDate(date: string | number | Date) {
         :block="data.heroField"
       />
 
+      
+
       <div class="text-pink-600" :data-tina-field="tinaField(data, 'date')">
         <time>{{ formatDate(data.date) }}</time>
       </div>
     </header>
 
     <h2 class="text-3xl">
+        Who wrote this amazing post:
+      </h2>
+      <ul v-if="data.authors" class="flex flex-col gap-4">
+        <li v-for="(item, authorIndex) in data.authors" :key="authorIndex">
+          <AuthorByline v-if="item?.author" :block="item.author" />
+        </li>
+      </ul>
+
+    <h2 class="text-3xl mt-8">
       What I'm munching on today:
     </h2>
     <ul v-if="data.snackList" class="flex gap-4 flex-wrap mt-2">

@@ -55,6 +55,20 @@ export default defineConfig({
             required: true,
           },
           {
+            type: 'object',
+            list: true,
+            name: 'authors',
+            label: 'Authors',
+            fields: [
+              {
+                type: 'reference',
+                label: 'Author',
+                name: 'author',
+                collections: [ContentType.AUTHOR],
+              },
+            ],
+          },
+          {
             type: 'string',
             name: 'description',
             label: 'Description',
